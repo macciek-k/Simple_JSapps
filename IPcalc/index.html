@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content= "width=device-width, user-scalable=no">
+    <title>IPcalc by macciek_k</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div id="topbar"><a class="topbar" href="../index.html"><img class="topbar" src="back_arrow.png"></a> IPcalc by macciek_k</div>
+    <div id="innerBody">
+    <p>
+    <form>
+        <p><script>document.write("<label>"+stringIp+"</label>")</script>
+        <input type="text" id="IP" class="" oninput=ipAddress.OnChange(); placeholder="192.168.0.1"></p>
+        <p><script>document.write("<label>"+stringMask+"</label>")</script>
+        <nobr><input type="text" id="mask" class="" oninput=netmask.OnChange(); placeholder="255.255.255.0">
+        <select id="shortMask" onchange="calcLongMask();">
+            <option value="" disabled selected>CIDR</option>
+            <script>
+                for (i=0;i<31;i++) document.write("<option value='"+i+"'>/"+i+"</option>");
+            </script>
+        </select>
+        </nobr></p>
+        <p><script>document.write("<label>"+stringWildcard+"</label>")</script>
+        <input type="text" id="wildcard" disabled></p>
+        <p><script>document.write("<label>"+stringNetworkAddress+"</label>")</script>
+        <input type="text" id="networkAddress" disabled></p>
+        <p><script>document.write("<label>"+stringFirstDevice+"</label>")</script>
+        <input type="text" id="firstDevice" disabled></p>
+        <p><script>document.write("<label>"+stringLastDevice+"</label>")</script>
+        <input type="text" id="lastDevice" disabled></p>
+        <p><script>document.write("<label>"+stringBroadcast+"</label>")</script>
+        <input type="text" id="broadcastAddress" disabled></p>
+    </form>
+</p>
+</div>
+</body>
+</html>

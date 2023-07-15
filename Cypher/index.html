@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content= "width=device-width, user-scalable=no">
+    <title>Cypher by macciek_k</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div id="topbar"><a class="topbar" href="../index.html"><img class="topbar" src="back_arrow.png"></a> Cypher by macciek_k</div>
+    <div id="innerBody">
+    <form>
+        <script>document.write("<label>"+stringOriginalMessage+"</label>");</script><br>
+        <textarea type="text" id="original" oninput=encode(); placeholder="Hello World!"></textarea><br>
+        <script>document.write("<label>"+stringKey+"</label>");</script><br>
+        <input type="text" id="key" class="monospace" placeholder="GA,DE,rY,Po,LU,kI" onkeypress="return event.keyCode != 13;"><br>
+        <script>document.write("<label>"+stringEncryptedMessage+"</label>");</script><br>
+        <textarea type="text" id="encoded" class="monospace" oninput=decode(); placeholder="==gM3wSMwEDL4ATMsgDMxwSMxEDLyMDL3gDLxETMsQTMxwCOwEDLwATMsMzM"></textarea><br>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+html,body {
+	font-family: sans-serif;
+    background-color: white;
+    color:black;
+    padding:0px;
+    margin:0px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+textarea,input{
+    background-color: rgb(240, 240, 240);
+    color:rgb(29, 29, 29);
+}
+input:disabled{
+    background-color:rgb(214, 214, 214);
+}
+input:disabled::placeholder{
+    opacity:0;
+}
+
+#topbar{
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color:white;
+    font-size:x-large;
+    padding-left:20px;
+    padding-right:20px;
+    padding-top:15px;
+    padding-bottom:15px;
+    margin-bottom:10px;
+    box-shadow: 0px 0px 10px rgb(138, 138, 138);
+}
+.topbar{
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color:white;
+    text-decoration: none;
+    margin-right:5px;
+    height: 18px;
+}
+#innerBody{
+    height:100%;
+    padding-left:20px;
+    padding-right:35px;
+    padding-top:8px;
+    padding-bottom:8px;
+    margin-bottom:10px;
+}
+
+@media (prefers-color-scheme: light) {
+	html,body {
+        background-color: rgb(255, 255, 255);
+        color:rgb(29, 29, 29);
+	}
+    textarea,input{
+        background-color: rgb(240, 240, 240);
+        color:rgb(29, 29, 29);
+    }
+    #topbar{
+        background-color:rgb(209, 94, 0);
+        box-shadow: 0px 0px 10px rgb(138, 138, 138);
+    }
+    input:disabled{
+        background-color:rgb(214, 214, 214);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+	html,body {
+        background-color: rgb(29, 29, 29);
+        color:white;
+	}
+    textarea,input{
+        background-color: rgb(48, 48, 48);
+        color:white;
+    }
+    #topbar{
+        background-color:rgb(83, 38, 0);
+        box-shadow: 0px 0px 10px rgb(0, 0, 0);
+    }
+    input:disabled{
+        background-color:rgb(97, 97, 97);
+    }
+}
+form {
+    height:35%;
+    width:100%;
+    margin-right:350px;
+}
+
+label{
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding-bottom:10px;
+    margin-bottom:10px;
+}
+label,textarea,input {
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-right:10px;
+    margin-bottom:5px;
+}
+textarea,input {
+    font-family:sans-serif;
+    width:100%;
+    margin-top:2.5px;
+    margin-bottom:10px;    
+    font-size:1.05em;
+    padding-left:5px;
+    border-radius:3px;
+    border:none;
+}
+textarea{
+    height:100%;
+    resize:none;
+}
+.monospace{
+    font-family:monospace;
+}
+@media only screen and (min-width: 768px){
+    form,p{
+        margin: 0 auto;
+        width:768px;
+    }
+    textarea,input {
+        max-width:768px;
+    }
+}
