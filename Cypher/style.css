@@ -8,6 +8,9 @@ html,body {
     display: flex;
     flex-direction: column;
 }
+img.topbar:hover{
+    cursor: pointer;
+}
 textarea,input{
     background-color: rgb(240, 240, 240);
     color:rgb(29, 29, 29);
@@ -121,7 +124,7 @@ textarea{
 .monospace{
     font-family:monospace;
 }
-@media only screen and (min-width: 768px){
+@media only screen and (min-width: 820px){
     form,p{
         margin: 0 auto;
         width:768px;

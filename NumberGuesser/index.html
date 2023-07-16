@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content= "width=device-width, user-scalable=no">
+    <title>NumberGuesser by macciek-k</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div id="topbar"><img class="topbar" onclick="history.back()" src="../back_button.png"> NumberGuesser</div>
+    <div id="innerBody">
+    <p>
+        <p class="stats"><span id="messages"><script>document.write(stringFirstDrawn);</script></span></p>
+        <p class="stats"><script>document.write(stringNumberOfTries);</script> <span id="numberOfTries">0</span>, <script>document.write(stringTimePassed);</script> 
+            <span id="minutes">0</span>:<span id="seconds">00</span></p><br class="big">
+        <p class="stats"><label><script>document.write(stringInputLabel);</script></label><br>
+        <input type="text" id="number" placeholder="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');doAction();" onkeypress="return event.keyCode != 13;">
+        <br><button id="resetButton" onclick="doReset()" hidden><script>document.write(stringReset);</script></button>
+    </p>
+</p>
+</div>
+</body>
+</html>
