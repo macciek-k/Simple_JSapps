@@ -19,7 +19,7 @@ Note that the *Cypher* app works bi-directionally: you can either type or paste 
    1. if key contains commas, remove them
    2. if key length is not an even number, clear the key value and stop doing the encryption
    3. create an array for key element, that works in such way: e.g if key value is ```"ABCDEFGH"```, then array contains ```["AB","CD","EF","GH"]```. Each value is a pair of characters that will be swapped with each other
-   4. in a loop whose ```i``` counter is array length: first character of the ```array[i]``` is temporarily replaced by ```"{}{"``` string, the second one temporarily by ```"}{["```. Then ```"{}{"``` is replaced by the second one character and ```"}{["``` by the first one
+   4. in a loop whose ```i``` counter is array length: all equivalents of the first character of ```array[i]``` in the ```string``` is temporarily replaced by ```"{}{"``` string, the second one temporarily by ```"}{["```. Then ```"{}{"``` is replaced by the second one character and ```"}{["``` by the first one
 7. return ```string```
 
 ### Algorithm for decoding:
