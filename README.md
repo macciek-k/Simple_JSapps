@@ -1,7 +1,7 @@
 # *Simple JSapps* by_macciek-k
 
 
-Simple JS-apps bundle, that include:
+Simple multilingual JS-apps bundle hosted on [project's page](https://macciek-k.github.io/Simple_JSapps/). The bundle includes:
 1. IPcalc by macciek-k - subnetwork calculator
 2. Cypher by macciek-k - tool for coding and decoding (whith optional encryption and decryption) text using modified base64 code
 3. NumberGuesser by macciek-k - Mini-game for guessing a number drawn by the computer
