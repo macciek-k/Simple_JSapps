@@ -6,8 +6,8 @@ Simple multilingual JS-apps bundle hosted on [project's page](https://macciek-k.
 2. Cypher by macciek-k - tool for coding and decoding (whith optional encryption and decryption) text using modified base64 code
 3. NumberGuesser by macciek-k - Mini-game for guessing a number drawn by the computer
 
-Additional descryption for Cypher
-Algorithm step-by-step for encoding (with additional encryption):
+## Additional descryption for Cypher
+### Algorithm step-by-step for encoding (with additional encryption):
 1. read input field and assign its value to a varriable "string"
 2. reverse "string"
 3. encode "string" value to a stream of UTF-8 bytes using TextEncoder interface, then assign that value to a varriable "code"
@@ -20,7 +20,7 @@ Algorithm step-by-step for encoding (with additional encryption):
    4. in a loop whose "i" counter is array length: first character of the array[i] is replaced by "{}{" string, the second one by "}{[". Then "{}{" is replaced by the second one character and "}{[" by the first one
 7. return "string"
 
-Algorithm for decoding:
+### Algorithm for decoding:
 1. read input field and assign its value to a varriable "string"
 2. if key is defined, do an decryption, which works the same way as encryption described above
 3. reverse "string"
