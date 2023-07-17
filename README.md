@@ -35,4 +35,4 @@ Note that the *Cypher* app works bi-directionally: you can either type or paste 
 
 &nbsp;
 ### This project is made only for educational purposes,
-**so I would be grateful for not doing here any commits.**
+**so I would be grateful for not doing here any requests.**
