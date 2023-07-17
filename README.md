@@ -7,6 +7,8 @@ Simple multilingual JS-apps bundle hosted on [project's page](https://macciek-k.
 3. NumberGuesser by macciek-k - Mini-game for guessing a number drawn by the computer
 
 ## Additional descryption for Cypher
+Note that the *Cypher* app works bi-directionally: you can either type or paste the original message into its text field and get the encrypted/encoded message at the bottom, or type the encoded message into the bottom field and get the decoded message at the *original message* field.
+
 ### Algorithm step-by-step for encoding (with additional encryption):
 1. read input field and assign its value to a varriable ```string```
 2. reverse ```string```
