@@ -1,4 +1,4 @@
-# simple_JSapps_by_macciek-k
+# simple_JSapps by_macciek-k
 
 
 Simple JS-apps bundle, that include:
