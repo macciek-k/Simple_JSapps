@@ -32,3 +32,7 @@ Note that the *Cypher* app works bi-directionally: you can either type or paste 
 7. decode ```arrOfInts``` by ```TextDecoder``` interface and ```Uint8Array``` method; decoded string assign to ```string``` varriable
 8. reverse ```string``` value
 9. return ```string```
+
+&nbsp;
+### This project is made only for educational purposes,
+**so I would be grateful for not doing here any commits.**
