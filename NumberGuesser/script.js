@@ -5,14 +5,14 @@ var numberOfTries=0;
 var counterOfRandNumbers=1;
 var startOfTimeCounting=0;
 var timeCounting=false;
+var resultsHistory=[];
 setInterval(timeCounter, 1000);
-
 //setting language
 const x = navigator.language.toLowerCase();
 switch (x.replace("_", "-")) { //such convertions needed, because different systems/browsers return their lang code in different ways
     case "pl": //Polish
     case "pl-pl":
-        stringFirstDrawn = "Wylosowano pierwszą liczbę!";
+        stringFirstDrawn = "Wylosowano pierwszą liczbę tej tury!";
         stringNumberOfTries = "Liczba prób:";
         stringTimePassed = "od pierwszej minęło:";
         stringInputLabel = "Wprowadź 4-cyfrową liczbę";
@@ -20,8 +20,12 @@ switch (x.replace("_", "-")) { //such convertions needed, because different syst
         stringTooSmall = "Wprowadzona liczba jest za mała";
         stringTooBig = "Wprowadzona liczba jest za duża";
         stringDrawn1 = "Wylosowano ";
-        stringDrawn2 = ". liczbę!";
+        stringDrawn2 = ". liczbę tej tury!";
         stringYouGuessed = "Zgadłeś/aś!";
+        stringHistoryTitle = "Lokalna historia wyników:";
+        stringHistoryNumber = "liczba:";
+        stringHistoryNumberOfTries = "liczba prób:";
+        stringHistoryTime = "czas:";
         break;
     case "de": //German
     case "de-at":
@@ -29,7 +33,7 @@ switch (x.replace("_", "-")) { //such convertions needed, because different syst
     case "de-lu":
     case "de-de":
     case "de-ch":
-        stringFirstDrawn = "Die erste Nummer wurde gezogen!";
+        stringFirstDrawn = "Die erste Nummer dieser Runde wurde gezogen!";
         stringNumberOfTries = "Anzahl Versuche:";
         stringTimePassed = "seit dem ersten bestanden:";
         stringInputLabel = "Geben Sie eine 4-stellige Nummer ein";
@@ -37,12 +41,16 @@ switch (x.replace("_", "-")) { //such convertions needed, because different syst
         stringTooSmall = "Die eingegebene Zahl ist zu klein";
         stringTooBig = "Die eingegebene Zahl ist zu groß";
         stringDrawn1 = "Die ";
-        stringDrawn2 = ". Nummer wurde gezogen!";
+        stringDrawn2 = ". Nummer dieser Runde wurde gezogen!";
         stringYouGuessed = "Du hast geraten!";
+        stringHistoryTitle = "Lokale Ergebnishistorie:";
+        stringHistoryNumber = "Nummer:";
+        stringHistoryNumberOfTries = stringNumberOfTries;
+        stringHistoryTime = "Zeit:";
         break;
     case "uk": //Ukrainian
     case "uk-ua":
-        stringFirstDrawn = "Перше число витягнуто!";
+        stringFirstDrawn = "Перше число цього раунду витягнуто!";
         stringNumberOfTries = "Кількість спроб:";
         stringTimePassed = "з першої минуло:";
         stringInputLabel = "Введіть 4-значне число";
@@ -50,11 +58,15 @@ switch (x.replace("_", "-")) { //such convertions needed, because different syst
         stringTooSmall = "Введене число занадто мале";
         stringTooBig = "Введене число занадто велике";
         stringDrawn1 = "Випало число №";
-        stringDrawn2 = "!";
+        stringDrawn2 = "цього раунду!";
         stringYouGuessed = "Ви вгадали!";
+        stringHistoryTitle = "Локальна історія результатів:";
+        stringHistoryNumber = "число:";
+        stringHistoryNumberOfTries = "кількість спроб:";
+        stringHistoryTime = "час:";
         break;
     default: //English
-        stringFirstDrawn = "The first number has been drawn!";
+        stringFirstDrawn = "The first number of this round has been drawn!";
         stringNumberOfTries = "Number of tries:";
         stringTimePassed = "since the first one passed:";
         stringInputLabel = "Enter a 4-digit number";
@@ -62,8 +74,12 @@ switch (x.replace("_", "-")) { //such convertions needed, because different syst
         stringTooSmall = "The entered number is too small";
         stringTooBig = "The entered number is too big";
         stringDrawn1 = "The #";
-        stringDrawn2 = " number has been drawn!";
+        stringDrawn2 = " number of this round has been drawn!";
         stringYouGuessed = "You guessed!";
+        stringHistoryTitle = "Local results history:";
+        stringHistoryNumber = "number:";
+        stringHistoryNumberOfTries = "number of tries:";
+        stringHistoryTime = "time:";
         break;
 };
 function timeCounter(){
@@ -80,6 +96,17 @@ function timeCounter(){
     document.getElementById("minutes").innerHTML=minutes;
 }
 
+function updateResultsHistory(){
+    l=resultsHistory.length;
+    resultsHistory[l]=randomNumber;
+    resultsHistory[l+1] = numberOfTries;
+    resultsHistory[l+2] = document.getElementById("minutes").innerHTML;
+    resultsHistory[l+3] = document.getElementById("seconds").innerHTML;
+    const d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    document.cookie = "resultsHistory="+resultsHistory.toString()+";expires="+d.toUTCString()+"SameSite=None;path=/";
+    writeHistory();
+}
 
 function doAction(){
     let numberEl=document.getElementById("number");
@@ -94,6 +121,7 @@ function doAction(){
         numberEl.setAttribute('disabled', '');
         numberEl.placeholder="";
         document.getElementById("resetButton").removeAttribute('hidden');
+        updateResultsHistory();
     } else {
         numberEl.value="";
         numberEl.placeholder=number;
@@ -116,3 +144,18 @@ function doAction(){
         document.getElementById("seconds").innerHTML="00";
         document.getElementById("minutes").innerHTML="0";
     }
+
+    
+function writeHistory(){
+    document.getElementById("historyList").innerHTML="";
+    let cookieVar= document.cookie;
+    cookieVar=cookieVar.substr(15,cookieVar.length);
+    if (cookieVar.length<1) return 0;
+    document.getElementById("historyTitle").removeAttribute("hidden");
+    resultsHistory=cookieVar.split(",");
+    let string="";
+    for (let i = 0;i<resultsHistory.length;i+=4){
+        string += "<li>"+stringHistoryNumber+" "+resultsHistory[i]+", "+stringHistoryNumberOfTries+" "+resultsHistory[i+1]+", "+stringHistoryTime+" "+resultsHistory[i+2]+":"+resultsHistory[i+3]+"</li>";
+    };
+    document.getElementById("historyList").innerHTML=string;
+}

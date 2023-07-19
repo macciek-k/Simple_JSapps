@@ -1,4 +1,7 @@
 html,body {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 	font-family: sans-serif;
     background-color: white;
     color:black;
@@ -24,6 +27,7 @@ input:disabled::placeholder{
 button{
     width:100px;
     height:40px;
+    margin-bottom:10px;
     font-size:large;
     color:white;
     border-radius:3px;
@@ -31,9 +35,8 @@ button{
     background-color:rgb(69, 181, 79);
 }
 #topbar{
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    position: fixed;
+    width:100%;
     color:white;
     font-size:x-large;
     padding-left:20px;
@@ -57,9 +60,19 @@ button{
     height:100%;
     padding-left:20px;
     padding-right:35px;
-    padding-top:8px;
+    padding-top:70px;
     padding-bottom:8px;
     margin-bottom:10px;
+}
+#historyTitle{
+    color:rgb(0, 126, 10);
+    font-weight:bold;
+}
+#history{
+    padding-top:15px;
+}
+li{
+    padding-bottom:5px;
 }
 
 @media (prefers-color-scheme: light) {
@@ -141,7 +154,7 @@ br.big{
 }
 
 @media only screen and (min-width: 820px){
-    form,p{
+    form,p,#history{
         margin: 0 auto;
         width:768px;
     }
@@ -156,3 +169,11 @@ br.big{
         padding-top:555px;
     }
 }
+
+@media only screen and (max-width: 435px){
+    ol{
+        padding-left:max(25px, calc(40px + calc(100vw - 435px)));
+    }
+    
+}
+
