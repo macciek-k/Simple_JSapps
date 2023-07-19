@@ -27,7 +27,7 @@ switch (x.replace("_", "-")) { //such convertions needed, because different syst
         stringHistoryNumberOfTries = "liczba prób:";
         stringHistoryTime = "czas:";
         stringClear = "Wyczyść";
-        stringClearYouSure = "Usunąć historię lokalnych wyników? Tej akcji nie będzie można cofnąć"
+        stringClearYouSure = "Usunąć historię lokalnych wyników? <nobr>Tej akcji nie będzie można cofnąć</nobr>"
         stringYes = "Tak";
         stringCancel = "Anuluj";
         break;
@@ -52,7 +52,7 @@ switch (x.replace("_", "-")) { //such convertions needed, because different syst
         stringHistoryNumberOfTries = stringNumberOfTries;
         stringHistoryTime = "Zeit:";
         stringClear = "Löschen";
-        stringClearYouSure = "Lokalen Ergebnishistorie löschen? Diese Aktion kann nicht rückgängig gemacht werden"
+        stringClearYouSure = "Lokalen Ergebnishistorie löschen? <nobr>Diese Aktion kann nicht rückgängig gemacht werden</nobr>"
         stringYes = "Ja";
         stringCancel = "Abbrechen";
         break;
@@ -73,7 +73,7 @@ switch (x.replace("_", "-")) { //such convertions needed, because different syst
         stringHistoryNumberOfTries = "кількість спроб:";
         stringHistoryTime = "час:";
         stringClear = "Видалити";
-        stringClearYouSure = "Видалити локальну історію результатів? Цю дію не можна скасувати"
+        stringClearYouSure = "Видалити локальну історію результатів? <nobr>Цю дію не можна скасувати</nobr>"
         stringYes = "Так";
         stringCancel = "Відміна";
         break;
@@ -93,7 +93,7 @@ switch (x.replace("_", "-")) { //such convertions needed, because different syst
         stringHistoryNumberOfTries = "number of tries:";
         stringHistoryTime = "time:";
         stringClear = "Clear";
-        stringClearYouSure = "Clear local results history? This action cannot be undone"
+        stringClearYouSure = "Clear local results history? <nobr>This action cannot be undone</nobr>"
         stringYes = "Yes";
         stringCancel = "Cancel";
         break;
