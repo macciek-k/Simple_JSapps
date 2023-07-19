@@ -26,6 +26,10 @@ switch (x.replace("_", "-")) { //such convertions needed, because different syst
         stringHistoryNumber = "liczba:";
         stringHistoryNumberOfTries = "liczba prób:";
         stringHistoryTime = "czas:";
+        stringClear = "Wyczyść";
+        stringClearYouSure = "Usunąć historię lokalnych wyników? Tej akcji nie będzie można cofnąć"
+        stringYes = "Tak";
+        stringCancel = "Anuluj";
         break;
     case "de": //German
     case "de-at":
@@ -47,6 +51,10 @@ switch (x.replace("_", "-")) { //such convertions needed, because different syst
         stringHistoryNumber = "Nummer:";
         stringHistoryNumberOfTries = stringNumberOfTries;
         stringHistoryTime = "Zeit:";
+        stringClear = "Löschen";
+        stringClearYouSure = "Lokalen Ergebnishistorie löschen? Diese Aktion kann nicht rückgängig gemacht werden"
+        stringYes = "Ja";
+        stringCancel = "Abbrechen";
         break;
     case "uk": //Ukrainian
     case "uk-ua":
@@ -64,6 +72,10 @@ switch (x.replace("_", "-")) { //such convertions needed, because different syst
         stringHistoryNumber = "число:";
         stringHistoryNumberOfTries = "кількість спроб:";
         stringHistoryTime = "час:";
+        stringClear = "Видалити";
+        stringClearYouSure = "Видалити локальну історію результатів? Цю дію не можна скасувати"
+        stringYes = "Так";
+        stringCancel = "Відміна";
         break;
     default: //English
         stringFirstDrawn = "The first number of this round has been drawn!";
@@ -80,8 +92,17 @@ switch (x.replace("_", "-")) { //such convertions needed, because different syst
         stringHistoryNumber = "number:";
         stringHistoryNumberOfTries = "number of tries:";
         stringHistoryTime = "time:";
+        stringClear = "Clear";
+        stringClearYouSure = "Clear local results history? This action cannot be undone"
+        stringYes = "Yes";
+        stringCancel = "Cancel";
         break;
 };
+
+function showClearButton(){
+    document.getElementById("clearButtons").innerHTML=`<button id="clearButton" onclick="clearAsk();">`+stringClear+`</button>`;
+}
+
 function timeCounter(){
     if (timeCounting==false) return -1;
     let seconds=document.getElementById("seconds").innerHTML;
@@ -158,4 +179,17 @@ function writeHistory(){
         string += "<li>"+stringHistoryNumber+" "+resultsHistory[i]+", "+stringHistoryNumberOfTries+" "+resultsHistory[i+1]+", "+stringHistoryTime+" "+resultsHistory[i+2]+":"+resultsHistory[i+3]+"</li>";
     };
     document.getElementById("historyList").innerHTML=string;
+    showClearButton();
+}
+function clearConfirmed(){
+    document.cookie = "resultsHistory='';expires=Thu, 01-Jan-1970 00:00:01 GMT;SameSite=None;path=/";
+    writeHistory();
+    document.getElementById("clearButtons").innerHTML="";
+    document.getElementById("historyTitle").setAttribute("hidden","");
+}
+
+function clearAsk(){
+    document.getElementById("clearButtons").innerHTML= 
+        stringClearYouSure+`<br><button class="clearConfButton" onclick="clearConfirmed();"> `+stringYes+` </button><button class="clearConfButton" onclick="showClearButton();">`+stringCancel+`</button>`;
+    
 }
