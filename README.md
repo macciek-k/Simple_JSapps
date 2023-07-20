@@ -6,6 +6,21 @@ Simple multilingual JS-apps bundle hosted on [project's page](https://macciek-k.
 2. Cypher by macciek-k - tool for coding and decoding (whith optional encryption and decryption) text using modified base64 code
 3. NumberGuesser by macciek-k - Mini-game for guessing a number drawn by the computer
 
+## Multilingualism of that bundle
+This bundle works in English, Polish, German and Ukrainian. Modern browsers can report a whole set of many languages, that user have set in order from most to least preferred. Function for appropriate checking the most preferred language is declared in ```common_resources/languageDetecion.js``` file.
+
+So e.g. if user have set languages in exact order:
+1. *some unsupported language*
+2. Polish (which is supported)
+3. English (which also is supported),
+
+
+this bundle will display in Polish, because in this case it has higher priority than English.
+
+If list of preferred by the user languages doesn't include any of supported by this bundle language, it will display in English – the default language of this bundle.
+
+Note that this is simplified model of multilingualism: I don't have much time for excellent translating this bundle. English and German are detected just as English and German, not as e.g. Canadian English or Swiss German. So if user has set Swiss German strings will have "ß" signs even though that letter doesn't exist in that variant of German etc. Also those translations may not be 100% correct, because I did them using Google Translate and DeepL Translate tools.
+
 ## Additional descryption for Cypher
 Note that the *Cypher* app works bi-directionally: you can either type or paste the original message into its text field and get the encrypted/encoded message at the bottom, or type the encoded message into the bottom field and get the decoded message at the *original message* field.
 
