@@ -1,8 +1,6 @@
 //setting language
-const x = navigator.language.toLowerCase();
-switch (x.replace("_", "-")) { //such convertions needed, because different systems/browsers return their lang code in different ways
+switch (preferedLanguage()) { //remember, that this function is declared in ../common_resources/languageDetecion.js file; don't forget to link that in html file!
     case "pl": //Polish
-    case "pl-pl":
         stringIp = "IP:";
         stringMask = "Maska podsieci:";
         stringWildcard = "Odwrócona maska:";
@@ -12,11 +10,6 @@ switch (x.replace("_", "-")) { //such convertions needed, because different syst
         stringBroadcast = "Adres rozgłoszeniowy:";
         break;
     case "de": //German
-    case "de-at":
-    case "de-li":
-    case "de-lu":
-    case "de-de":
-    case "de-ch":
         stringIp = "IP:";
         stringMask = "Subnetzmaske:";
         stringWildcard = "Wildcard-Maske:";
@@ -26,7 +19,6 @@ switch (x.replace("_", "-")) { //such convertions needed, because different syst
         stringBroadcast = "Broadcast-Adresse:";
         break;
     case "uk": //Ukrainian
-    case "uk-ua":
         stringIp = "IP-адреса:";
         stringMask = "Маска підмережі:";
         stringWildcard = "Інверсна маска:";
@@ -35,7 +27,7 @@ switch (x.replace("_", "-")) { //such convertions needed, because different syst
         stringLastDevice = "Адреса останнього пристрою:";
         stringBroadcast = "Адреса трансляції:";
         break;
-    default: //English
+    case "en":
         stringIp = "IP:";
         stringMask = "Subnetwork mask:";
         stringWildcard = "Wildcard mask:";

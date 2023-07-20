@@ -1,29 +1,21 @@
 //setting language
-const x = navigator.language.toLowerCase();
-switch (x.replace("_", "-")) { //such convertions needed, because different systems/browsers return their lang code in different ways
+switch (preferedLanguage()) { //remember, that this function is declared in ../common_resources/languageDetecion.js file; don't forget to link that in html file!
     case "pl": //Polish
-    case "pl-pl":
         stringOriginalMessage = "Wiadomość oryginalna:";
         stringKey = "Klucz (opcjonalny):";
         stringEncryptedMessage = "Wiadomość zaszyfrowana:";
         break;
     case "de": //German
-    case "de-at":
-    case "de-li":
-    case "de-lu":
-    case "de-de":
-    case "de-ch":
         stringOriginalMessage = "Ursprüngliche Nachricht:";
         stringKey = "Schlüssel (optional):";
         stringEncryptedMessage = "Verschlüsselte Nachricht:";
         break;
     case "uk": //Ukrainian
-    case "uk-ua":
         stringOriginalMessage = "Зашифроване повідомлення:";
         stringKey = "Ключ (необов'язково):";
         stringEncryptedMessage = "Оригінальне повідомлення:";
         break;
-    default: //English
+    case "en":
         stringOriginalMessage = "Original message:";
         stringKey = "Key (optional):";
         stringEncryptedMessage = "Encrypted message:";
@@ -32,7 +24,7 @@ switch (x.replace("_", "-")) { //such convertions needed, because different syst
 
 function key(str, keyElement) {
     keyValue = keyElement.value;
-    //i did that, because in this function value of "key" element is replaced in case of:
+    //i did that instead of passing a keyElement.value parameter, because in this function value of "key" element is replaced in case of:
     //1. key is incorrect
     //2. key is correct, but isn't written in ab,cd,ef.. format, which is helpful for reading it
     if (keyValue != "") {

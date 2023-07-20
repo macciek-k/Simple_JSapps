@@ -7,11 +7,10 @@ var startOfTimeCounting=0;
 var timeCounting=false;
 var resultsHistory=[];
 setInterval(timeCounter, 1000);
+
 //setting language
-const x = navigator.language.toLowerCase();
-switch (x.replace("_", "-")) { //such convertions needed, because different systems/browsers return their lang code in different ways
+switch (preferedLanguage()) { //remember, that this function is declared in ../common_resources/languageDetecion.js file; don't forget to link that in html file!
     case "pl": //Polish
-    case "pl-pl":
         stringFirstDrawn = "Wylosowano pierwszą liczbę tej tury!";
         stringNumberOfTries = "Liczba prób:";
         stringTimePassed = "od pierwszej minęło:";
@@ -32,11 +31,6 @@ switch (x.replace("_", "-")) { //such convertions needed, because different syst
         stringCancel = "Anuluj";
         break;
     case "de": //German
-    case "de-at":
-    case "de-li":
-    case "de-lu":
-    case "de-de":
-    case "de-ch":
         stringFirstDrawn = "Die erste Nummer dieser Runde wurde gezogen!";
         stringNumberOfTries = "Anzahl Versuche:";
         stringTimePassed = "seit dem ersten bestanden:";
@@ -57,7 +51,6 @@ switch (x.replace("_", "-")) { //such convertions needed, because different syst
         stringCancel = "Abbrechen";
         break;
     case "uk": //Ukrainian
-    case "uk-ua":
         stringFirstDrawn = "Перше число цього раунду витягнуто!";
         stringNumberOfTries = "Кількість спроб:";
         stringTimePassed = "з першої минуло:";
@@ -77,7 +70,7 @@ switch (x.replace("_", "-")) { //such convertions needed, because different syst
         stringYes = "Так";
         stringCancel = "Відміна";
         break;
-    default: //English
+    case "en":
         stringFirstDrawn = "The first number of this round has been drawn!";
         stringNumberOfTries = "Number of tries:";
         stringTimePassed = "since the first one passed:";
