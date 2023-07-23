@@ -118,7 +118,7 @@ function updateResultsHistory(){
     resultsHistory[l+3] = document.getElementById("seconds").innerHTML;
     const d = new Date();
     d.setTime(d.getTime() + (365*24*60*60*1000));
-    document.cookie = "resultsHistory="+resultsHistory.toString()+";expires="+d.toUTCString()+";SameSite=None;path=/";
+    document.cookie = "resultsHistory="+resultsHistory.toString()+";expires="+d.toUTCString()+";SameSite=Strict;path=/";
     writeHistory();
 }
 
