@@ -175,7 +175,7 @@ function writeHistory(){
     showClearButton();
 }
 function clearConfirmed(){
-    document.cookie = "resultsHistory='';expires=Thu, 01-Jan-1970 00:00:01 GMT;SameSite=None;path=/";
+    document.cookie = "resultsHistory='';expires=Thu, 01-Jan-1970 00:00:01 GMT;SameSite=Strict;path=/";
     writeHistory();
     document.getElementById("clearButtons").innerHTML="";
     document.getElementById("historyTitle").setAttribute("hidden","");
