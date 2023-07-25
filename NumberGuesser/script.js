@@ -118,7 +118,7 @@ function updateResultsHistory(){
     resultsHistory[l+3] = document.getElementById("seconds").innerHTML;
     const d = new Date();
     d.setTime(d.getTime() + (365*24*60*60*1000));
-    document.cookie = "resultsHistory="+resultsHistory.toString()+";expires="+d.toUTCString()+";SameSite=Strict;path=/";
+    document.cookie = "resultsHistory="+resultsHistory.toString()+";expires="+d.toUTCString()+";SameSite=Strict;path=/Simple_JSapps";
     writeHistory();
 }
 
@@ -175,7 +175,7 @@ function writeHistory(){
     showClearButton();
 }
 function clearConfirmed(){
-    document.cookie = "resultsHistory='';expires=Thu, 01-Jan-1970 00:00:01 GMT;SameSite=Strict;path=/";
+    document.cookie = "resultsHistory='';expires=Thu, 01-Jan-1970 00:00:01 GMT;SameSite=Strict;path=/Simple_JSapps";
     writeHistory();
     document.getElementById("clearButtons").innerHTML="";
     document.getElementById("historyTitle").setAttribute("hidden","");
